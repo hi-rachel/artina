@@ -28,3 +28,27 @@ body {
 .font-display {
   font-family: Playfair Display;
 }
+
+.scrollable-x::-webkit-scrollbar {
+  height: 10px;
+}
+
+.scrollable-x::-webkit-scrollbar-track {
+  background-color: #fdf6e3; /* 밝은 배경색 */
+  border-radius: 8px;
+}
+
+.scrollable-x::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 8px;
+  border: 2px solid #fdf6e3; /* 트랙과 thumb 사이 여백처럼 보이게 */
+  transition: background-color 0.2s ease;
+}
+
+.scrollable-x::-webkit-scrollbar-thumb:hover {
+  background-color: #c1b2a3; /* hover 시 약간 어두운 베이지 */
+}
+
+.scrollable-x::-webkit-scrollbar-thumb:active {
+  background-color: #a99786; /* 클릭 시 더 어두운 베이지 */
+}
