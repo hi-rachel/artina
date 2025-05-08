@@ -5,7 +5,6 @@ import * as THREE from "three";
 import gsap from "gsap";
 import { OrbitControls } from "three-stdlib";
 
-// 세련된 유럽식 갤러리 컴포넌트
 interface GalleryElegantProps {
   isAnimating: boolean;
   onAnimationComplete: () => void;
@@ -458,33 +457,6 @@ const GalleryElegant: React.FC<GalleryElegantProps> = ({
     createPainting("end", 0, 3);
     createPainting("end", 10, 4);
 
-    // 사용자 컨트롤 도움말 표시 함수
-    const showControlsHelp = () => {
-      const helpElement = document.createElement("div");
-      helpElement.className = "controls-help";
-      helpElement.style.position = "absolute";
-      helpElement.style.bottom = "20px";
-      helpElement.style.left = "20px";
-      helpElement.style.backgroundColor = "rgba(0, 0, 0, 0.6)";
-      helpElement.style.color = "white";
-      helpElement.style.padding = "10px 15px";
-      helpElement.style.borderRadius = "5px";
-      helpElement.style.fontSize = "14px";
-      helpElement.style.transition = "opacity 1s";
-      helpElement.innerHTML =
-        "마우스로 드래그: 시점 회전 | 스크롤: 확대/축소 | 우클릭 드래그: 이동";
-
-      containerRef.current?.appendChild(helpElement);
-
-      // 5초 후 도움말 서서히 사라지게 하기
-      setTimeout(() => {
-        helpElement.style.opacity = "0";
-        setTimeout(() => {
-          helpElement.remove();
-        }, 1000);
-      }, 15000);
-    };
-
     // ----- 애니메이션 및 렌더링 -----
 
     // 애니메이션 루프
@@ -492,7 +464,6 @@ const GalleryElegant: React.FC<GalleryElegantProps> = ({
     const animate = () => {
       animationId = requestAnimationFrame(animate);
 
-      // 조형물 애니메이션 업데이트
       // 전체 조형물 회전
       sculptureGroup.rotation.y += 0.002;
 
@@ -564,7 +535,6 @@ const GalleryElegant: React.FC<GalleryElegantProps> = ({
         },
       });
     }
-    showControlsHelp();
   }, [isAnimating, onAnimationComplete, animationCompleted]);
 
   return <div ref={containerRef} className="fixed inset-0" />;

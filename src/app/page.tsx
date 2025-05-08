@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import ControlsHelp from "@/components/home/ControlsHelp";
 
 // 클라이언트 사이드에서만 Three.js 컴포넌트 로드 (SSR 비활성화)
 const GalleryElegant = dynamic(
@@ -104,7 +105,7 @@ const HomePage = () => {
               transition={{ delay: 0.8 }}
               className="mb-10 text-white text-xl drop-shadow-md"
             >
-              지금, 예술의 방으로 들어가보세요.
+              Where art meets you
             </motion.p>
 
             <motion.button
@@ -166,21 +167,24 @@ const HomePage = () => {
 
         {/* 애니메이션 완료 후 갤러리 페이지로 이동 버튼 */}
         {!isLoading && hasEntered && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="absolute bottom-10 right-10 pointer-events-auto"
-          >
-            <Link href="/gallery">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-white text-black rounded-xl shadow-xl transition-all hover:bg-opacity-90"
-              >
-                전시회 관람하기
-              </motion.button>
-            </Link>
-          </motion.div>
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="absolute bottom-10 right-10 pointer-events-auto"
+            >
+              <Link href="/gallery">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-6 py-3 bg-white text-black rounded-xl shadow-xl transition-all hover:bg-opacity-90"
+                >
+                  전시 관람하기 →
+                </motion.button>
+              </Link>
+            </motion.div>
+            <ControlsHelp />
+          </>
         )}
       </div>
     </main>
