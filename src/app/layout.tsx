@@ -3,11 +3,13 @@ import "@/styles/globals.css";
 import { GoogleTagManager } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://artina-gallery.vercel.app"),
   title: "Artina",
   description: "Where art meets you.",
   openGraph: {
     title: "Artina",
     description: "Where art meets you | AI Docent",
+    siteName: "Artina",
     images: [
       {
         url: "/artina-og.png",
