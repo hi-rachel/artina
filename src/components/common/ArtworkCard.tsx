@@ -2,9 +2,11 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import PaintingLoader from "./PaintingLoader";
 
 interface ArtworkCardProps {
-  image?: string;
+  imageUrl?: string;
   title: string;
   year?: string;
   artist?: string;
@@ -14,7 +16,7 @@ interface ArtworkCardProps {
 }
 
 const ArtworkCard = ({
-  image,
+  imageUrl,
   title,
   year,
   artist,
@@ -27,11 +29,11 @@ const ArtworkCard = ({
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [imageReady, setImageReady] = useState<boolean>(false);
   const imgRef = useRef<HTMLImageElement>(null);
-  const showPlaceholderFrame = !image || imgError;
+  const showPlaceholderFrame = !imageUrl || imgError;
 
-  // 이미지 프리로딩 처리 - 사전 로딩 방식으로 변경
+  // 최적화된 이미지 프리로딩 처리
   useEffect(() => {
-    if (!image) {
+    if (!imageUrl) {
       setIsLoading(false);
       return;
     }
@@ -39,152 +41,98 @@ const ArtworkCard = ({
     setIsLoading(true);
     setImageReady(false);
 
-    const preloadImage = new Image();
-    preloadImage.src = image;
+    // Intersection Observer를 사용한 lazy loading
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const img = new window.Image();
+            img.src = imageUrl;
 
-    const handleLoad = () => {
-      // 로딩 상태를 바로 변경하지 않고, 약간의 지연을 두어 로딩 애니메이션이 충분히 보이도록 함
-      setTimeout(() => {
-        setIsLoading(false);
-        // 이미지 로딩 완료 후에 imageReady 상태 변경
-        setTimeout(() => {
-          setImageReady(true);
-        }, 100);
-      }, 300);
-    };
+            img.onload = () => {
+              setTimeout(() => {
+                setIsLoading(false);
+                setTimeout(() => {
+                  setImageReady(true);
+                }, 100);
+              }, 200); // 로딩 시간 단축
+            };
 
-    const handleError = () => {
-      setImgError(true);
-      setIsLoading(false);
-    };
+            img.onerror = () => {
+              setImgError(true);
+              setIsLoading(false);
+            };
 
-    preloadImage.onload = handleLoad;
-    preloadImage.onerror = handleError;
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "50px" }
+    );
 
-    // 8초 후에도 로딩이 완료되지 않으면 타임아웃 처리
+    if (imgRef.current) {
+      observer.observe(imgRef.current);
+    }
+
+    // 5초 타임아웃 (기존 8초에서 단축)
     const timeout = setTimeout(() => {
       if (isLoading) {
         setIsLoading(false);
-
-        // 타임아웃 발생 시에도 약간의 지연 후 이미지 표시
         setTimeout(() => {
           setImageReady(true);
         }, 100);
       }
-    }, 8000);
+    }, 5000);
 
     return () => {
       clearTimeout(timeout);
-      preloadImage.onload = null;
-      preloadImage.onerror = null;
+      observer.disconnect();
     };
-  }, [image]);
+  }, [imageUrl]);
 
-  // 색칠하는 애니메이션 버전
-  const renderPaintingLoader = () => (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
-      className="absolute inset-0 flex items-center justify-center"
-    >
-      <div className="w-full h-full flex flex-col items-center justify-center">
-        <svg
-          width="80"
-          height="80"
-          viewBox="0 0 100 100"
-          className="text-gray-400"
-        >
-          {/* 캔버스 프레임 */}
-          <rect
-            x="15"
-            y="15"
-            width="70"
-            height="70"
-            rx="2"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          />
+  // ESC 키로 모달 닫기 및 스크롤 방지
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && open) {
+        setOpen(false);
+      }
+    };
 
-          {/* 페인트 스트로크 애니메이션 */}
-          <motion.path
-            d="M25,25 L75,25 L75,75 L25,75 Z"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              repeatType: "loop",
-              ease: "easeInOut",
-            }}
-          />
+    if (open) {
+      // ESC 키 이벤트 리스너 추가
+      document.addEventListener("keydown", handleKeyDown);
+      // 모달 열린 동안 스크롤 방지
+      document.body.style.overflow = "hidden";
+    }
 
-          {/* 색칠되는 영역들 */}
-          <motion.rect
-            x="25"
-            y="25"
-            width="50"
-            height="15"
-            fill="currentColor"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.1 }}
-            transition={{
-              duration: 0.5,
-              delay: 0.5,
-            }}
-          />
-
-          <motion.rect
-            x="25"
-            y="40"
-            width="50"
-            height="15"
-            fill="currentColor"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.1 }}
-            transition={{
-              duration: 0.5,
-              delay: 1,
-            }}
-          />
-
-          <motion.rect
-            x="25"
-            y="55"
-            width="50"
-            height="20"
-            fill="currentColor"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.1 }}
-            transition={{
-              duration: 0.5,
-              delay: 1.5,
-            }}
-          />
-        </svg>
-      </div>
-    </motion.div>
-  );
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      // 모달 닫힐 때 스크롤 복원
+      document.body.style.overflow = "unset";
+    };
+  }, [open]);
 
   return (
     <>
       <div
-        className="h-[90vh] w-full flex flex-col justify-center items-center text-center px-6 cursor-pointer"
-        onClick={() => image && !imgError && imageReady && setOpen(true)}
+        className="h-[80vh] sm:h-[90vh] w-full flex flex-col justify-center items-center text-center px-2 sm:px-6 cursor-pointer"
+        onClick={() => imageUrl && !imgError && imageReady && setOpen(true)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            if (imageUrl && !imgError && imageReady) {
+              setOpen(true);
+            }
+          }
+        }}
+        role="button"
+        tabIndex={0}
+        aria-label={`${title} 작품 크게보기`}
       >
         {!showPlaceholderFrame ? (
-          <div className="relative h-[60vh] w-full max-w-2xl flex items-center justify-center overflow-hidden">
+          <div className="relative h-[50vh] sm:h-[60vh] w-full max-w-2xl flex items-center justify-center overflow-hidden">
             {/* 로딩 애니메이션 - isLoading이 false가 되면 사라짐 */}
-            <AnimatePresence>
-              {isLoading && renderPaintingLoader()}
-            </AnimatePresence>
+            <AnimatePresence>{isLoading && <PaintingLoader />}</AnimatePresence>
 
             {/* 이미지 - imageReady가 true가 된 경우에만 표시 */}
             <AnimatePresence mode="wait">
@@ -197,36 +145,39 @@ const ArtworkCard = ({
                   transition={{ duration: 0.5 }}
                   className="w-full h-full flex items-center justify-center"
                 >
-                  {/* 미리 로드된 이미지를 화면에 표시 */}
-                  <img
-                    ref={imgRef}
-                    src={image}
-                    alt={title}
-                    className="max-h-[60vh] max-w-full object-contain mb-4 rounded-lg shadow-md opacity-0"
-                    style={{
-                      opacity: imageReady ? 1 : 0,
-                      transition: "opacity 0.3s ease-in-out",
-                    }}
-                    onLoad={() => {
-                      // 화면에 표시되는 이미지가 완전히 로드되면 표시
-                      if (imgRef.current) {
-                        imgRef.current.style.opacity = "1";
-                      }
-                    }}
-                    onError={() => setImgError(true)}
-                  />
+                  {/* 최적화된 이미지 표시 */}
+                  <div className="relative w-full max-w-2xl h-[50vh] sm:h-[60vh] flex items-center justify-center mb-2 sm:mb-4">
+                    <Image
+                      ref={imgRef}
+                      src={imageUrl}
+                      alt={title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 800px"
+                      className="object-contain opacity-0"
+                      style={{
+                        opacity: imageReady ? 1 : 0,
+                        transition: "opacity 0.3s ease-in-out",
+                      }}
+                      onLoad={() => {
+                        if (imgRef.current) {
+                          imgRef.current.style.opacity = "1";
+                        }
+                      }}
+                      onError={() => setImgError(true)}
+                    />
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
         ) : (
-          <div className="h-[60vh] w-full max-w-2xl flex items-center justify-center border-1 border-gray-100 bg-white text-gray-400 text-sm rounded mb-4">
+          <div className="h-[50vh] sm:h-[60vh] w-full max-w-2xl flex items-center justify-center border-1 border-gray-100 bg-white text-gray-400 text-sm rounded mb-2 sm:mb-4">
             {"작품 준비중입니다."}
           </div>
         )}
 
-        <div className="text-center mt-2 text-sm text-gray-700">
-          <div className="italic font-medium text-base">{title}</div>
+        <div className="text-center mt-1 sm:mt-2 text-xs sm:text-sm text-gray-700">
+          <div className="italic font-medium text-sm sm:text-base">{title}</div>
           <div className="text-gray-500">
             {artist && artist}
             {artist && year && " | "}
@@ -243,21 +194,65 @@ const ArtworkCard = ({
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex justify-center items-center p-6"
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex justify-center items-center p-2 sm:p-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setOpen(false)}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+            aria-describedby="modal-description"
           >
-            <motion.img
+            <motion.div
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              src={image}
-              alt={title}
-              className="max-h-[90vh] max-w-full object-contain rounded-lg shadow-xl"
-            />
+              className="relative w-full max-w-6xl h-[85vh] sm:h-[90vh] flex items-center justify-center"
+            >
+              <Image
+                src={imageUrl || ""}
+                alt={title}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                className="object-contain"
+              />
+
+              {/* 작품 정보 - 호버 시에만 표시 (모바일에서는 항상 표시) */}
+              <div className="absolute inset-0 group">
+                <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 right-2 sm:right-4 bg-black/50 backdrop-blur-sm text-white p-2 sm:p-4 rounded-lg opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="text-center">
+                    <h2
+                      id="modal-title"
+                      className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2"
+                    >
+                      {title}
+                    </h2>
+                    <div className="text-xs sm:text-sm text-gray-200">
+                      {artist && artist}
+                      {artist && year && " | "}
+                      {year && year}
+                    </div>
+                    {medium && (
+                      <div className="text-xs sm:text-sm text-gray-300 mt-1">
+                        {medium}
+                      </div>
+                    )}
+                    {dimensions && (
+                      <div className="text-xs sm:text-sm text-gray-300 mt-1">
+                        {dimensions}
+                      </div>
+                    )}
+                    {description && (
+                      <div className="text-xs text-gray-400 mt-1 sm:mt-2 max-w-2xl mx-auto">
+                        {description}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
