@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import ArtworkCard from "@/components/common/ArtworkCard";
 import HorizontalScrollContainer from "@/components/common/HorizontalScrollContainer";
 import WaveLoader from "@/components/common/WaveLoader";
@@ -22,6 +23,7 @@ export default function GalleryWithArrows({
   artworks: Artwork[];
   artistName: string;
 }) {
+  const router = useRouter();
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [isCurrentlySpeaking, setIsCurrentlySpeaking] = useState(false);
   const [speakingType, setSpeakingType] = useState<"artist" | "artwork" | null>(
@@ -362,8 +364,8 @@ export default function GalleryWithArrows({
   const handleGoBack = () => {
     // 현재 오디오가 재생 중이면 중지
     stopCurrentAudio();
-    // 브라우저 뒤로가기
-    window.history.back();
+    // 갤러리 페이지로 이동
+    router.push("/gallery");
   };
 
   return (
