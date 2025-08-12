@@ -4,7 +4,7 @@ export interface ArtworkDescription {
 }
 
 export const artworkDescriptions: Record<string, ArtworkDescription> = {
-  // Rembrandt 작품들 (API 응답과 정확히 일치)
+  // Rembrandt 작품들
   "Portrait of Gerard de Lairesse (1665–67)": {
     ko: "이 작품은 1665-67년에 그려진 헤라르트 더 라이레스의 초상화입니다. 흥미로운 점은 이 작품이 렘브란트가 화가를 그린 작품 중 하나라는 것입니다! 그는 이 작품에서 라이레스의 지적인 모습을 포착했는데, 특히 그의 깊은 눈빛과 자신감 있는 자세가 생생하게 표현되었습니다. 어두운 배경과 밝은 얼굴의 대비가 렘브란트의 특징적인 기법을 보여주며, 이는 17세기 네덜란드 지식인의 모습을 보여주는 대표작입니다.",
     en: "This portrait of Gerard de Lairesse was painted in 1665-67. Interestingly, this is one of Rembrandt's works painting artists! He captured Lairesse's intellectual appearance in this work, with his deep gaze and confident posture vividly expressed. The contrast between dark background and bright face shows Rembrandt's characteristic technique, making this a representative work of 17th-century Dutch intellectuals.",
@@ -45,8 +45,6 @@ export const artworkDescriptions: Record<string, ArtworkDescription> = {
     ko: "이 작품은 1654년에 그려진 플로라입니다. 흥미로운 점은 이 작품이 렘브란트가 신화적 주제를 다룬 작품 중 하나라는 것입니다! 그는 이 작품에서 꽃의 여신 플로라의 아름다움을 포착했는데, 특히 그녀의 우아한 모습과 꽃들의 생생한 색채가 생생하게 표현되었습니다. 따뜻한 색채와 부드러운 브러시 워크로 여성의 아름다움을 표현했으며, 이는 렘브란트의 신화화를 대표하는 작품입니다.",
     en: "This work shows 'Flora', painted in 1654. Interestingly, this is one of Rembrandt's works dealing with mythological subjects! He captured the beauty of Flora, goddess of flowers, in this work, with her elegant appearance and flowers' vivid colors vividly expressed. He expressed women's beauty through warm colors and soft brushwork, making this a representative work of Rembrandt's mythological paintings.",
   },
-
-  // 추가 Rembrandt 작품들 (MVP)
   'Portrait of a Man ("The Auctioneer")': {
     ko: "이 작품은 '경매인'으로 알려진 남자의 초상화입니다. 흥미로운 점은 이 작품이 렘브란트가 상업인을 그린 작품 중 하나라는 것입니다! 그는 이 작품에서 경매인의 전문적인 모습을 포착했는데, 특히 그의 자신감 있는 표정과 상업적 기질이 생생하게 표현되었습니다. 어두운 배경과 밝은 얼굴의 대비가 극적으로 표현되었으며, 이는 17세기 네덜란드 상업계의 모습을 보여주는 작품입니다.",
     en: "This work shows 'Portrait of a Man (The Auctioneer)'. Interestingly, this is one of Rembrandt's works painting businessmen! He captured the auctioneer's professional appearance in this work, with his confident expression and commercial character vividly expressed. The contrast between dark background and bright face is dramatically expressed, making this a work showing 17th-century Dutch commercial world.",
@@ -87,8 +85,6 @@ export const artworkDescriptions: Record<string, ArtworkDescription> = {
     ko: "이 작품은 두 도둑 사이에 십자가에 못 박힌 그리스도: 세 개의 십자가입니다. 흥미로운 점은 이 작품이 렘브란트가 종교적 주제를 다룬 작품 중 하나라는 것입니다! 그는 이 작품에서 성경의 극적인 순간을 포착했는데, 특히 그리스도의 고통과 두 도둑의 대비가 생생하게 표현되었습니다. 어두운 배경과 밝은 얼굴들의 대비가 극적으로 표현되었으며, 이는 렘브란트의 종교화를 대표하는 작품입니다.",
     en: "This work shows 'Christ Crucified between the Two Thieves: The Three Crosses'. Interestingly, this is one of Rembrandt's works dealing with religious subjects! He captured a dramatic moment from the Bible in this work, with Christ's suffering and two thieves' contrast vividly expressed. The contrast between dark background and bright faces is dramatically expressed, making this a representative work of Rembrandt's religious paintings.",
   },
-
-  // 추가 Rembrandt 작품들 (MVP 완성)
   "Old Woman Cutting Her Nails": {
     ko: "이 작품은 손톱을 자르는 늙은 여인입니다. 흥미로운 점은 이 작품이 렘브란트가 일상적 주제를 다룬 작품 중 하나라는 것입니다! 그는 이 작품에서 일상의 평범한 순간을 포착했는데, 특히 늙은 여인의 집중하는 모습과 섬세한 동작이 생생하게 표현되었습니다. 따뜻한 색채와 섬세한 기법으로 일상의 아름다움을 표현했으며, 이는 렘브란트의 일상화를 대표하는 작품입니다.",
     en: "This work shows 'Old Woman Cutting Her Nails'. Interestingly, this is one of Rembrandt's works dealing with everyday subjects! He captured an ordinary moment of daily life in this work, with the old woman's focused appearance and delicate movement vividly expressed. He expressed everyday beauty through warm colors and delicate technique, making this a representative work of Rembrandt's everyday paintings.",
@@ -141,8 +137,6 @@ export const artworkDescriptions: Record<string, ArtworkDescription> = {
     ko: "이 작품은 십자가에서 내려오는 그리스도입니다. 흥미로운 점은 이 작품이 렘브란트가 종교적 주제를 다룬 작품 중 하나라는 것입니다! 그는 이 작품에서 성경의 극적인 순간을 포착했는데, 특히 그리스도의 고통과 제자들의 슬픔이 생생하게 표현되었습니다. 강렬한 명암 대비와 사실적인 표현으로 종교적 감동을 만들어냈으며, 이는 렘브란트의 종교화를 대표하는 작품입니다.",
     en: "This work shows 'Descent from the Cross'. Interestingly, this is one of Rembrandt's works dealing with religious subjects! He captured a dramatic moment from the Bible in this work, with Christ's suffering and disciples' sorrow vividly expressed. He created religious emotion through intense chiaroscuro and realistic expression, making this a representative work of Rembrandt's religious paintings.",
   },
-
-  // Johannes Vermeer 작품들 (API 응답과 정확히 일치)
   "Study of a Young Woman (1665–67)": {
     ko: "이 작품은 1665-67년에 그려진 젊은 여인의 연구입니다. 흥미로운 점은 이 작품이 베르메르의 초상화 중 하나라는 것입니다! 그는 이 작품에서 젊은 여인의 순수한 아름다움을 포착했는데, 특히 그녀의 자연스러운 표정과 부드러운 색채가 생생하게 표현되었습니다. 섬세한 기법과 부드러운 색채로 여성의 아름다움을 표현했으며, 이는 베르메르의 초상화를 대표하는 작품입니다.",
     en: "This work shows 'Study of a Young Woman', painted in 1665-67. Interestingly, this is one of Vermeer's portraits! He captured the young woman's pure beauty in this work, with her natural expression and soft colors vividly expressed. He expressed women's beauty through delicate technique and soft colors, making this a representative work of Vermeer's portraits.",
@@ -167,14 +161,10 @@ export const artworkDescriptions: Record<string, ArtworkDescription> = {
     ko: "이 작품은 1866년에 베르메르를 모방하여 그려진 장교와 웃는 소녀입니다. 흥미로운 점은 이 작품이 베르메르의 원작을 모방한 작품 중 하나라는 것입니다! 그는 이 작품에서 베르메르의 스타일을 포착했는데, 특히 장교와 소녀의 상호작용이 생생하게 표현되었습니다. 정밀한 기법과 생생한 색채로 베르메르의 영향을 보여주며, 이는 19세기 베르메르 모방 작품을 대표합니다.",
     en: "This work shows 'Officer and Laughing Girl, after Vermeer', painted in 1866. Interestingly, this is one of the works imitating Vermeer's original! He captured Vermeer's style in this work, with officer and girl's interaction vividly expressed. He showed Vermeer's influence through precise technique and vivid colors, making this representative of 19th-century Vermeer imitations.",
   },
-
-  // 추가 Vermeer 작품들 (MVP)
   "Officer and Laughing Girl, after Vermeer": {
     ko: "이 작품은 베르메르를 모방하여 그려진 장교와 웃는 소녀입니다. 흥미로운 점은 이 작품이 베르메르의 원작을 모방한 작품 중 하나라는 것입니다! 그는 이 작품에서 베르메르의 스타일을 포착했는데, 특히 장교와 소녀의 상호작용이 생생하게 표현되었습니다. 정밀한 기법과 생생한 색채로 베르메르의 영향을 보여주며, 이는 19세기 베르메르 모방 작품을 대표합니다.",
     en: "This work shows 'Officer and Laughing Girl, after Vermeer'. Interestingly, this is one of the works imitating Vermeer's original! He captured Vermeer's style in this work, with officer and girl's interaction vividly expressed. He showed Vermeer's influence through precise technique and vivid colors, making this representative of 19th-century Vermeer imitations.",
   },
-
-  // Caravaggio 작품들 (MVP)
   "The Denial of Saint Peter": {
     ko: "이 작품은 성 베드로의 부인입니다. 흥미로운 점은 이 작품이 카라바조가 종교적 주제를 다룬 작품 중 하나라는 것입니다! 그는 이 작품에서 성경의 극적인 순간을 포착했는데, 특히 베드로의 고뇌와 부인의 순간이 생생하게 표현되었습니다. 강렬한 명암 대비와 사실적인 표현으로 극적인 효과를 만들어냈으며, 이는 카라바조의 종교화를 대표하는 작품입니다.",
     en: "This work shows 'The Denial of Saint Peter'. Interestingly, this is one of Caravaggio's works dealing with religious subjects! He captured a dramatic moment from the Bible in this work, with Peter's anguish and denial moment vividly expressed. He created dramatic effect through intense chiaroscuro and realistic expression, making this a representative work of Caravaggio's religious paintings.",
@@ -195,8 +185,6 @@ export const artworkDescriptions: Record<string, ArtworkDescription> = {
     ko: "이 작품은 목자들의 경배입니다. 흥미로운 점은 이 작품이 카라바조가 성경의 장면을 그린 작품 중 하나라는 것입니다! 그는 이 작품에서 목자들의 경건한 모습을 포착했는데, 특히 그들의 경배하는 자세와 아기 예수를 향한 시선이 생생하게 표현되었습니다. 강렬한 명암 대비와 사실적인 표현으로 종교적 감동을 만들어냈으며, 이는 카라바조의 종교화를 대표하는 작품입니다.",
     en: "This work shows 'The Adoration of the Shepherds'. Interestingly, this is one of Caravaggio's works painting biblical scenes! He captured the shepherds' pious appearance in this work, with their worshiping posture and gaze toward baby Jesus vividly expressed. He created religious emotion through intense chiaroscuro and realistic expression, making this a representative work of Caravaggio's religious paintings.",
   },
-
-  // Jean-Honoré Fragonard 작품들 (API 응답과 정확히 일치)
   "Marie Emilie Coignet de Courson (1716–1806) with a Dog (1769)": {
     ko: "이 작품은 1769년에 그려진 마리 에밀리 코이네 드 쿠르송과 개입니다. 흥미로운 점은 이 작품이 프라고나르가 귀족을 그린 작품 중 하나라는 것입니다! 그는 이 작품에서 귀족의 우아함을 포착했는데, 특히 마리 에밀리의 우아한 모습과 개의 충성스러운 모습이 생생하게 표현되었습니다. 부드러운 색채와 섬세한 기법으로 18세기 프랑스 귀족의 생활을 보여주며, 이는 프라고나르의 초상화를 대표하는 작품입니다.",
     en: "This work shows 'Marie Emilie Coignet de Courson with a Dog', painted in 1769. Interestingly, this is one of Fragonard's works painting aristocrats! He captured aristocratic elegance in this work, with Marie Emilie's graceful appearance and dog's loyal appearance vividly expressed. He showed 18th-century French aristocratic life through soft colors and delicate technique, making this a representative work of Fragonard's portraits.",
@@ -222,7 +210,6 @@ export const artworkDescriptions: Record<string, ArtworkDescription> = {
     en: "This work shows 'The Love Letter', painted in early 1770s. Interestingly, this is one of Fragonard's works dealing with everyday subjects! He captured a moment of love in this work, with the woman's elegant appearance and letter-reading scene vividly expressed. He expressed everyday beauty through soft colors and delicate technique, making this a representative work of Fragonard's everyday paintings.",
   },
 
-  // 기존 작품들 유지
   "Under the Wave off Kanagawa (Kanagawa oki nami ura), or The Great Wave, from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei) (1830–32)":
     {
       ko: "이 작품은 1830-32년에 그려진 가나가와 해변의 높은 파도입니다. 흥미로운 점은 이 작품이 호쿠사이의 가장 유명한 작품이자 일본 예술의 상징이라는 것입니다! 그는 이 작품에서 자연의 위대한 힘을 표현했는데, 특히 거대한 파도와 작은 배들의 대비가 극적으로 표현되었습니다. 섬세한 선과 생생한 색채로 자연의 웅장함을 포착했으며, 이는 우키요에의 대표작이자 세계 예술사에서 중요한 작품입니다.",
@@ -244,7 +231,7 @@ export const artworkDescriptions: Record<string, ArtworkDescription> = {
     en: "This work depicts 'Study for Young Girl in a Green Coat', painted in 1894. Interestingly, this is one of Morisot's later works! He captured the young woman's characteristics in this work, with green coat's beauty and woman's natural expression vividly expressed. He expressed young women's beauty through soft colors and delicate technique, making this representative of Morisot's later works.",
   },
 
-  // Berthe Morisot 작품들 (API 응답 기반)
+  // Berthe Morisot 작품들
   "Young Woman Knitting": {
     ko: "이 작품은 뜨개질하는 젊은 여인입니다. 흥미로운 점은 이 작품이 모리조가 일상적 주제를 다룬 작품 중 하나라는 것입니다! 그는 이 작품에서 일상의 평화로운 순간을 포착했는데, 특히 젊은 여인의 집중하는 모습과 뜨개질의 섬세한 동작이 생생하게 표현되었습니다. 부드러운 색채와 섬세한 기법으로 일상의 아름다움을 표현했으며, 이는 모리조의 일상화를 대표하는 작품입니다.",
     en: "This work shows 'Young Woman Knitting'. Interestingly, this is one of Morisot's works dealing with everyday subjects! He captured a peaceful moment of daily life in this work, with the young woman's focused appearance and knitting's delicate movement vividly expressed. He expressed everyday beauty through soft colors and delicate technique, making this a representative work of Morisot's everyday paintings.",
@@ -258,7 +245,7 @@ export const artworkDescriptions: Record<string, ArtworkDescription> = {
     en: "This work shows 'Landscape (Tree-trunks near a River)'. Interestingly, this is one of Morisot's works painting landscapes! He captured nature's tranquility in this work, with tree trunks and river's harmony vividly expressed. He expressed nature's beauty through soft colors and delicate technique, making this a representative work of Morisot's landscapes.",
   },
 
-  // Rembrandt 나머지 작품들 (MVP 완성)
+  // Rembrandt 나머지 작품들
   "Martha Washington": {
     ko: "이 작품은 마사 워싱턴의 초상화입니다. 흥미로운 점은 이 작품이 렘브란트가 미국의 역사적 인물을 그린 작품 중 하나라는 것입니다! 그는 이 작품에서 마사 워싱턴의 우아한 모습을 포착했는데, 특히 그녀의 고급스러운 의상과 자신감 있는 자세가 생생하게 표현되었습니다. 어두운 배경과 밝은 얼굴의 대비가 극적으로 표현되었으며, 이는 렘브란트의 역사적 인물 초상화를 대표하는 작품입니다.",
     en: "This work shows 'Martha Washington'. Interestingly, this is one of Rembrandt's works painting American historical figures! He captured Martha Washington's elegant appearance in this work, with her luxurious clothing and confident posture vividly expressed. The contrast between dark background and bright face is dramatically expressed, making this a representative work of Rembrandt's historical figure portraits.",
@@ -277,7 +264,7 @@ export const artworkDescriptions: Record<string, ArtworkDescription> = {
       en: "This work shows 'Portrait of Lieven Willemsz van Coppenol, Writing Master (the larger plate)'. Interestingly, this is one of Rembrandt's works painting educators! He captured Coppenol's intellectual appearance in this work, with his deep gaze and educator-like posture vividly expressed. The contrast between dark background and bright face is dramatically expressed, making this a representative work of Rembrandt's educator portraits.",
     },
 
-  // Caravaggio 나머지 작품들 (한번에 추가)
+  // Caravaggio 나머지 작품들
   "Title page depicting a two-handled base with dancing nymphs, from Antique Vases (Vasa a Polidoro Caravagino)":
     {
       ko: "이 작품은 고대 항아리에서 춤추는 님프들이 있는 두 손잡이 받침대를 묘사한 표제 페이지입니다. 흥미로운 점은 이 작품이 카라바조가 고전적 주제를 다룬 작품 중 하나라는 것입니다! 그는 이 작품에서 고대의 우아한 분위기를 포착했는데, 특히 님프들의 춤과 고대 항아리의 아름다움이 생생하게 표현되었습니다. 정밀한 기법과 생생한 색채로 고전의 아름다움을 표현했으며, 이는 카라바조의 고전 작품을 대표합니다.",
@@ -368,7 +355,7 @@ export const artworkDescriptions: Record<string, ArtworkDescription> = {
       en: "This work shows 'Female figure standing in the right-hand margin of the third sheet of the Rape of the Sabine Women'. Interestingly, this is one of Caravaggio's works painting ancient Roman historical events! He captured a historical moment in this work, with female figure's anguish and historical event's tragedy vividly expressed. He created historical emotion through intense chiaroscuro and realistic expression, making this a representative work of Caravaggio's historical paintings.",
     },
 
-  // Caravaggio 최종 작품들 (MVP 완성)
+  // Caravaggio
   "Neptune standing in a niche holding a trident in his left hand, foliage in his right":
     {
       ko: "이 작품은 왼손에 삼지창을 들고 오른손에 잎사귀를 쥔 채 벽감에 서 있는 넵튠입니다. 흥미로운 점은 이 작품이 카라바조가 신화적 주제를 다룬 작품 중 하나라는 것입니다! 그는 이 작품에서 바다의 신 넵튠의 위엄 있는 모습을 포착했는데, 특히 그의 강인한 자세와 삼지창의 상징적 의미가 생생하게 표현되었습니다. 강렬한 명암 대비와 사실적인 표현으로 신화적 분위기를 만들어냈으며, 이는 카라바조의 신화화를 대표하는 작품입니다.",
@@ -444,7 +431,7 @@ export const artworkDescriptions: Record<string, ArtworkDescription> = {
       en: "This work shows 'The Sacrifice of Isaac set in a landscape with a flock of sheep at left and an angel guiding Abraham's sword at upper left'. Interestingly, this is one of Caravaggio's works painting biblical scenes! He captured a dramatic moment from the Bible in this work, with Abraham's faith and angel's intervention vividly expressed. He created religious emotion through intense chiaroscuro and realistic expression, making this a representative work of Caravaggio's religious paintings.",
     },
 
-  // Titian 작품들 (MVP 완성)
+  // Titian 작품들
   "Filippo Archinto (born about 1500, died 1558), Archbishop of Milan": {
     ko: "이 작품은 1500년경 태어나 1558년에 사망한 밀란의 대주교 필리포 아르친토의 초상화입니다. 흥미로운 점은 이 작품이 티치아노가 교회 지도자를 그린 작품 중 하나라는 것입니다! 그는 이 작품에서 아르친토의 지혜로운 모습을 포착했는데, 특히 그의 깊은 눈빛과 교회 지도자다운 자세가 생생하게 표현되었습니다. 따뜻한 색채와 섬세한 기법으로 교회 지도자의 위엄을 표현했으며, 이는 티치아노의 교회 지도자 초상화를 대표하는 작품입니다.",
     en: "This work shows 'Filippo Archinto (born about 1500, died 1558), Archbishop of Milan'. Interestingly, this is one of Titian's works painting church leaders! He captured Archinto's wise appearance in this work, with his deep gaze and church leader-like posture vividly expressed. He expressed church leader's dignity through warm colors and delicate technique, making this a representative work of Titian's church leader portraits.",
@@ -513,7 +500,7 @@ export const artworkDescriptions: Record<string, ArtworkDescription> = {
     en: "This work shows 'Diana Discovering Callisto's Pregnancy'. Interestingly, this is one of Titian's works dealing with mythological subjects! He captured a mythological moment in this work, with Diana's surprise and Callisto's anguish vividly expressed. He expressed mythological atmosphere through warm colors and delicate technique, making this a representative work of Titian's mythological paintings.",
   },
 
-  // 추가 Titian 작품들 (MVP 완성 - 나머지 25개)
+  // 추가 Titian 작품들
   "Bacchus and Ariadne": {
     ko: "이 작품은 바쿠스와 아리아드네입니다. 흥미로운 점은 이 작품이 티치아노가 신화적 주제를 다룬 작품 중 하나라는 것입니다! 그는 이 작품에서 그리스 신화의 순간을 포착했는데, 특히 바쿠스의 역동적인 모습과 아리아드네의 놀란 표정이 생생하게 표현되었습니다. 생생한 색채와 역동적인 구도로 신화적 순간을 표현했으며, 이는 티치아노의 신화화를 대표하는 작품입니다.",
     en: "This work shows 'Bacchus and Ariadne'. Interestingly, this is one of Titian's works dealing with mythological subjects! He captured a moment of Greek mythology in this work, with Bacchus's dynamic appearance and Ariadne's surprised expression vividly expressed. He expressed mythological moment through vivid colors and dynamic composition, making this a representative work of Titian's mythological paintings.",
@@ -644,7 +631,7 @@ export const artworkDescriptions: Record<string, ArtworkDescription> = {
     en: "This work shows 'The Pietà'. Interestingly, this is one of Titian's works dealing with religious subjects! He captured a sad moment from the Bible in this work, with Christ's death and Virgin Mary's maternal sorrow vividly expressed. He expressed religious emotion through dark colors and delicate technique, making this a representative work of Titian's religious paintings.",
   },
 
-  // Francisco Goya 작품들 (API 응답 기반)
+  // Francisco Goya 작품들
   "Condesa de Altamira and Her Daughter, María Agustina": {
     ko: "이 작품은 알타미라 백작부인과 그녀의 딸 마리아 아구스티나입니다. 흥미로운 점은 이 작품이 고야가 귀족 가족을 그린 작품 중 하나라는 것입니다! 그는 이 작품에서 모녀의 따뜻한 사랑을 포착했는데, 특히 어머니의 모성과 딸의 순수함이 생생하게 표현되었습니다. 따뜻한 색채와 섬세한 기법으로 가족의 사랑을 표현했으며, 이는 고야의 귀족 초상화를 대표하는 작품입니다.",
     en: "This work shows 'Condesa de Altamira and Her Daughter, María Agustina'. Interestingly, this is one of Goya's works painting aristocratic families! He captured the mother-daughter's warm love in this work, with mother's motherhood and daughter's innocence vividly expressed. He expressed family love through warm colors and delicate technique, making this a representative work of Goya's aristocratic portraits.",
@@ -888,13 +875,13 @@ export const artworkDescriptions: Record<string, ArtworkDescription> = {
     en: "A still life with flowers and prickly pears. Renoir contrasts the softness of flowers with the unique texture of prickly pears, like seeing the meeting of France and the southern regions.",
   },
 
-  // Francisco Goya 추가 작품들
+  // Francisco Goya
   "'Clear Folly'  from the 'Disparates' (Follies / Irrationalities)": {
     ko: "고야의 '디스파라테스' 시리즈에서 '명백한 광기'를 그린 작품입니다. 고야는 이 작품에서 인간의 비합리성과 광기를 상징적으로 표현했는데, 마치 현대 사회의 부조리한 면을 미리 경고하는 듯합니다.",
     en: "This depicts 'Clear Folly' from Goya's 'Disparates' series. Goya symbolically expresses human irrationality and madness here, almost like a warning about the absurd aspects of modern society.",
   },
 
-  // Pierre-Auguste Renoir 추가 작품들
+  // Pierre-Auguste Renoir
   "Madame Georges Charpentier (Marguerite-Louise Lemonnier, 1848–1904) and Her Children, Georgette-Berthe (1872–1945) and Paul-Emile-Charles (1875–1895)":
     {
       ko: "조르주 샤르팡티에 부인과 그녀의 아이들을 그린 작품입니다. 르누아르는 이 작품에서 부르주아 가정의 우아한 분위기를 포착했는데, 부인의 우아함과 아이들의 순수함이 조화롭게 어우러져 있습니다. 19세기 파리 상류층의 전형적인 가족 초상화네요.",
@@ -1025,13 +1012,13 @@ export const artworkDescriptions: Record<string, ArtworkDescription> = {
     en: "This depicts 'The Missionaries' from 'The Complete Works of Béranger'. Renoir was responsible for the illustration of the literary work, vividly expressing the appearance of missionaries.",
   },
 
-  // Pierre-Auguste Renoir 추가 누락 작품
+  // Pierre-Auguste Renoir
   "The Milliner": {
     ko: "모자 제작자를 그린 작품입니다. 르누아르는 이 작품에서 일하는 여성의 전문적인 모습을 포착했는데, 모자 제작의 섬세한 과정과 여성의 집중하는 모습이 생생하게 표현되었습니다.",
     en: "This depicts a milliner. Renoir captures the professional appearance of working women in this work, with the delicate process of hat-making and the woman's focused appearance vividly expressed.",
   },
 
-  // Berthe Morisot 추가 누락 작품들
+  // Berthe Morisot
   "The Pink Dress (Albertie-Marguerite Carré, later Madame Ferdinand-Henri Himmes, 1854–1935)":
     {
       ko: "핑크 드레스를 입은 알베르티-마르게리트 카레를 그린 작품입니다. 모리조는 이 작품에서 여성의 우아함을 포착했는데, 핑크 드레스와 여인의 부드러운 표정이 조화롭게 어우러져 있습니다.",
@@ -1090,7 +1077,7 @@ export const artworkDescriptions: Record<string, ArtworkDescription> = {
     en: "Berthe Morisot in silhouette. Morisot expresses her outline in this work, with the simplicity and elegance of the silhouette beautifully expressed.",
   },
 
-  // Jean-Auguste-Dominique Ingres 추가 누락 작품들
+  // Jean-Auguste-Dominique Ingres
   "Joséphine-Éléonore-Marie-Pauline de Galard de Brassac de Béarn (1825–1860), Princesse de Broglie":
     {
       ko: "브로글리 공작부인을 그린 초상화입니다. 앵그르는 이 작품에서 귀족 여성의 우아함을 포착했는데, 그녀의 고급스러운 의상과 자신감 있는 자세가 생생하게 표현되었습니다.",
@@ -1133,7 +1120,6 @@ export const artworkDescriptions: Record<string, ArtworkDescription> = {
     en: "Portrait of Madame Edmond Cavé (born 1810). Ingres captures the elegance of women in this work, with her gentle expression and luxurious clothing harmoniously blended.",
   },
 
-  // 누락된 작품들 추가
   "A Maid Asleep": {
     ko: "이 작품은 1656-57년경에 그려진 베르메르의 '잠자는 하녀'입니다. 흥미로운 점은 이 작품이 베르메르가 일상적 주제를 다룬 초기 작품 중 하나라는 것입니다! 그는 이 작품에서 하녀의 평화로운 모습을 포착했는데, 특히 그녀의 부드러운 표정과 자연스러운 자세가 생생하게 표현되었습니다. 따뜻한 색채와 섬세한 기법으로 일상의 아름다움을 표현했으며, 이는 베르메르의 일상화를 대표하는 작품입니다.",
     en: "This work shows 'A Maid Asleep', painted around 1656-57 by Vermeer. Interestingly, this is one of Vermeer's early works dealing with everyday subjects! He captured the maid's peaceful appearance in this work, with her gentle expression and natural posture vividly expressed. He expressed everyday beauty through warm colors and delicate technique, making this a representative work of Vermeer's everyday paintings.",
@@ -1199,4 +1185,3 @@ export const artworkDescriptions: Record<string, ArtworkDescription> = {
     en: "This work shows 'The Two Sisters', painted in 1769-70 by Fragonard. Interestingly, this is one of Fragonard's works dealing with family love! He captured the sisters' affection in this work, with warm emotions between sisters vividly expressed. He expressed family love through warm colors and delicate technique, making this representative of Fragonard's family theme works.",
   },
 };
-
