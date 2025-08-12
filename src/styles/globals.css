@@ -41,8 +41,8 @@ body {
 .scrollable-x::-webkit-scrollbar-thumb {
   background-color: black;
   border-radius: 8px;
-  border: 2px solid #fdf6e3; /* 트랙과 thumb 사이 여백처럼 보이게 */
-  transition: background-color 0.2s ease;
+  border: 2px solid #fdf6e3;
+  transition: all 0.2s ease;
 }
 
 .scrollable-x::-webkit-scrollbar-thumb:hover {
