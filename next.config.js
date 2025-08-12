@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
   images: {
     domains: ["images.metmuseum.org", "collectionapi.metmuseum.org"],
     formats: ["image/webp", "image/avif"],
