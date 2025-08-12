@@ -82,7 +82,7 @@ const HomePage = () => {
       )}
 
       {/* UI 오버레이 */}
-      <div className="fixed inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
+      <div className="p-6 fixed inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
         {!isLoading && !isEntering && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -171,13 +171,13 @@ const HomePage = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="absolute bottom-10 right-10 pointer-events-auto"
+              className="absolute bottom-6 right-6 md:bottom-10 md:right-10 pointer-events-auto"
             >
               <Link href="/gallery">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-6 py-3 bg-white text-black rounded-xl shadow-xl transition-all hover:bg-opacity-90"
+                  className="px-4 py-2 md:px-6 md:py-3 bg-white text-black rounded-xl shadow-xl transition-all hover:bg-opacity-90 text-sm md:text-base"
                 >
                   전시 관람하기 →
                 </motion.button>
