@@ -20,7 +20,6 @@ export const artistMap: Record<string, string> = {
   morisot: "Berthe Morisot",
   hokusai: "Katsushika Hokusai",
 
-  klimt: "Gustav Klimt",
   rodin: "Auguste Rodin",
 };
 
@@ -132,12 +131,6 @@ export const artistGroups: Record<string, Artist[]> = {
     },
   ],
   "Early 20th Century": [
-    {
-      slug: "klimt",
-      name: "Gustav Klimt",
-      thumbnailUrl:
-        "https://images.metmuseum.org/CRDImages/ep/original/DP243354.jpg",
-    },
     {
       slug: "rodin",
       name: "Auguste Rodin",
