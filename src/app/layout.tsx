@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://artina-gallery.vercel.app"),
@@ -51,7 +51,7 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
-      <GoogleTagManager gtmId="G-VZ4FZ5CQYL" />
+      <GoogleAnalytics gaId={"G-VZ4FZ5CQYL"} />
       <body className={`antialiased`}>{children}</body>
     </html>
   );
