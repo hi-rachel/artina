@@ -535,6 +535,14 @@ const GalleryElegant: React.FC<GalleryElegantProps> = ({
         },
       });
     }
+
+    // cleanup 함수 반환
+    return () => {
+      if (animationId !== null) {
+        cancelAnimationFrame(animationId);
+      }
+      window.removeEventListener("resize", handleResize);
+    };
   }, [isAnimating, onAnimationComplete, animationCompleted]);
 
   return <div ref={containerRef} className="fixed inset-0" />;
