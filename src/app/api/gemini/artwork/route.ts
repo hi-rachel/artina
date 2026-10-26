@@ -76,8 +76,8 @@ export async function POST(request: NextRequest) {
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
 
-    console.log("=== Gemini 1.5 Flash API 시작 ===");
-    const flashModel = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    console.log("=== Gemini Flash API 시작 ===");
+    const flashModel = genAI.getGenerativeModel({ model: "gemini-flash-latest" });
 
     // 이미지 URL에서 이미지 데이터 가져오기
     let imageData;
@@ -175,12 +175,12 @@ Important notes:
 10. Explain the historical context and artist's intention.
 `;
 
-    console.log("=== Gemini 1.5 Flash API 호출 시작 ===");
+    console.log("=== Gemini Flash API 호출 시작 ===");
     const result = await flashModel.generateContent([prompt, imageData]);
     const response = await result.response;
     const text = response.text();
 
-    console.log("=== Gemini 1.5 Flash 원본 응답 ===");
+    console.log("=== Gemini Flash 원본 응답 ===");
     console.log(text);
 
     let analysis;
