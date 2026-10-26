@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
     }
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-flash-latest" });
 
     const prompt =
       language === "ko"
@@ -63,7 +63,7 @@ Important notes:
 9. Avoid repeating generic phrases or templates - focus on unique characteristics of this specific artist.
 `;
 
-    console.log("=== Gemini 1.5 Flash API 호출 시작 ===");
+    console.log("=== Gemini Flash API 호출 시작 ===");
     const result = await model.generateContent(prompt);
     const response = await result.response;
     const text = response.text();
